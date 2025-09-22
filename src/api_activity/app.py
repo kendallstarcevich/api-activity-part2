@@ -61,6 +61,14 @@ class Register(Resource):
             return jsonify({"message": f"User {username} already exists"}), 409
 
 
+def get_db():
+
+  if 'db' not in g:
+
+    g.db = Database()
+
+  return g.db
+
 def instantiate_app() -> Flask:
     """Instantiate a new flask app"""
     # Create the flask app
